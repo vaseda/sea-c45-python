@@ -1,0 +1,223 @@
+python
+ls
+test1.py
+python test1.py
+whihc python
+which python
+.
+cwd
+ls
+cd ..
+ls
+cd ..
+cd.
+run
+ls
+cd ..
+whoami
+pwd
+cls
+clr
+cls
+mkdir Unix
+cd Unix
+ls
+ls ..\
+pwd
+cd /Users/Lena/Unix
+ls
+echo Hello Lena > hello.txt
+ls
+cat hello.txt 
+echo Hello Lena > home.txt
+cat h
+cat hello.txt h
+uname
+set
+ls
+ls
+cd /Users/Lena/Unix
+pwd
+quit
+exit
+cd /Users/Lena/Unix
+ls
+ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/install/master/install)"
+cd /Users/Lena/Unix
+ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/install/master/install)"
+which brew
+ls /usr/local/bin/brew
+ls /usr/local/bin
+brew update
+brew doctor
+set
+cd ..
+ls
+ls -a
+cd Unix/
+brew doctor
+cat ~/.bash_profile
+echo 'export PATH="/usr/local/bin:$PATH"' >> ~/.bash_profile
+cat ~/.bash_profile
+cd /Users/Lena/Unix
+set
+brew doctor
+brew install fish
+chsh -s /usr/local/bin/fish
+cd /Users/Lena/Unix
+brew install fish
+echo '/usr/local/bin/fish' | sudo tee -a /etc/shells
+chsh -s /usr/local/bin/fish
+cd /Users/Lena/Unix
+cd /Users/Lena/Unix
+cd /Users/Lena/sea-c45-python/
+ls
+cd sea-c45-python/
+ls
+cat README.md 
+git status
+cd /Users/Lena/Unix
+cd ../sea-c45-python/sea-c45-python/
+pwd
+cd /Users/Lena/sea-c45-python/sea-c45-python
+git status
+git pull
+python
+cd /Users/Lena/sea-c45-python/sea-c45-python
+cd ../../chicago/
+ls
+ls
+git info
+git status
+ls
+ls -n
+ls -a
+ls -a -n
+cat .idea/
+cd .idea/
+ls
+cd ..
+git add .idea/*
+git status
+pwd
+python
+which python
+cat /usr/bin/python
+python
+/Applications/Python\ 3.5/Update\ Shell\ Profile.command ; exit;
+cd /Users/Lena/sea-c45-python/sea-c45-python
+python
+cd /Users/Lena/sea-c45-python/sea-c45-python
+python
+echo $PATH
+ls /Library/Frameworks/Python.framework/Versions/3.5/bin
+python3.5
+which python
+ls /usr/bin/python -a
+ls /usr/bin/ -a
+ls -n /usr/bin/ 
+cat /usr/bin/python-config 
+python3
+cd /Users/Lena/sea-c45-python/sea-c45-python
+sudo rm /usr/bin/pydoc
+cd /usr/bin
+ls
+rm /usr/bin/python
+sudo rm /usr/bin/python
+ls
+sudo rm /usr/bin/pydic
+sudo rm /usr/bin/pydoc
+sudo rm /usr/bin/pytonw
+sudo rm /usr/bin/pyton-config
+ls python*
+sudo rm /usr/bin/python-config
+ls python*
+sudo rm /usr/bin/pythonw
+ls python*
+sudo ln -s /Library/Frameworks/Python.framework/Versions/3.5/bin/pydoc /usr/bin/pydoc
+ls python*
+sudo ln -s /Library/Frameworks/Python.framework/Versions/3.5/bin/pydoc /usr/bin/pydoc
+ls python*
+ls py*
+sudo ln -s /Library/Frameworks/Python.framework/Versions/3.5/bin/python /usr/bin/python
+sudo ln -s /Library/Frameworks/Python.framework/Versions/3.5/bin/pythonw /usr/bin/pythonw
+sudo ln -s /Library/Frameworks/Python.framework/Versions/3.5/bin/python-config /usr/bin/python-config
+ls py*
+python
+echo $PATH
+python
+cd /usr/bin
+ls pyth*
+ls -a pyth*
+ls -n pyth*
+;2C;2C
+ /Library/Frameworks/Python.framework/Versions/3.5/bin/python
+ ls /Library/Frameworks/Python.framework/Versions/3.5/bin/
+sudo ln -s /Library/Frameworks/Python.framework/Versions/3.5/bin/python3 /usr/bin/python
+python
+ /Library/Frameworks/Python.framework/Versions/3.5/bin/python3
+sudo ln -s /Library/Frameworks/Python.framework/Versions/3.5/bin/python3 /usr/bin/python
+cd /usr/bin
+rm python
+sudo rm python
+sudo ln -s /Library/Frameworks/Python.framework/Versions/3.5/bin/python3 /usr/bin/python
+python
+ls py*
+pydoc
+ ls /Library/Frameworks/Python.framework/Versions/3.5/bin/
+ /Library/Frameworks/Python.framework/Versions/3.5/bin/pydoc3.5
+ /Library/Frameworks/Python.framework/Versions/3.5/bin/pydoc3.5 print
+ ls /Library/Frameworks/Python.framework/Versions/3.5/bin/
+ ls /Library/Frameworks/Python.framework/Versions/3.5/bin/
+sudo rm pydoc
+sudo ln -s /Library/Frameworks/Python.framework/Versions/3.5/bin/pydoc3.5 /usr/bin/pydoc
+pydoc
+pydoc for
+pythonw
+sudo ln -s /Library/Frameworks/Python.framework/Versions/3.5/bin/pydoc3.5 /usr/bin/pydoc
+pydoc if
+ls /Library/Frameworks/Python.framework/Versions/3.5/bin/pydoc3.5
+ls /Library/Frameworks/Python.framework/Versions/3.5/bin/
+python-config
+ls py*
+cat python-config
+ls python-config
+cd python-config 
+ls -n python-config 
+ls /Library/Frameworks/Python.framework/Versions/3.5/bin/
+sudo rm python-config
+sudo ln -s /Library/Frameworks/Python.framework/Versions/3.5/bin/python3.5-config /usr/bin/python-config
+cat python-config
+python
+df
+subl
+echo $EDITOR
+cd /Users/Lena/sea-c45-python/sea-c45-python
+subl
+ls /usr/bin
+ls /usr/local/bin
+ls /usr/local/bin/subl 
+ls -n /usr/local/bin/subl 
+sudo rm /usr/local/bin/subl
+sudo ln /Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl
+sudo ln /Applications/Sublime Text.app/Contents/SharedSupport/bin/subl /usr/local/subl
+sudo ln -s /Applications/Sublime Text.app/Contents/SharedSupport/bin/subl /usr/local/subl
+ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
+subl
+cd /Users/Lena/sea-c45-python/sea-c45-python
+cd /examples
+cd /Users/Lena/sea-c45-python/sea-c45-python
+cd /Users/Lena/sea-c45-python/sea-c45-python
+python Hello_world.py
+python3 Hello_world.py
+cd ..
+python Hello_world.py
+cd /Users/Lena/sea-c45-python/sea-c45-python
+python Hello_world.py
+cd ..
+pwd
+python Hello_world.py
+python Hello_world.py
+python Hello_world.py
+python Hello_world.py
+python Hello_world.py Hawaii
