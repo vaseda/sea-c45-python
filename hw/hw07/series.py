@@ -46,18 +46,23 @@ def sum_series(n, seed1=1, seed2=1):
 
 if __name__ == "__main__":
 
-    # Test fibonacci
+    # Test fibonacci()
     assert(fibonacci(0) == 1)
     assert(fibonacci(1) == 1)
     assert(fibonacci(2) == 2)
     assert(fibonacci(3) == 3)
-    # Test lucas
+    # Test lucas()
     assert(lucas(0) == 2)
     assert(lucas(1) == 1)
     assert(lucas(2) == 3)
     assert(lucas(3) == 4)
-    # Test sum_series for fibonacci
+    # Test sum_series() for fibonacci
     assert(sum_series(0, 1, 1) == 1)
     assert(sum_series(1, seed2=1, seed1=1) == 1)
     assert(sum_series(2) == 2)
     assert(sum_series(3) == 3)
+    # Test sum_series() for lucas
+    assert(sum_series(0, 2, 1) == 2)
+    assert(sum_series(1, seed2=1, seed1=1) == 1)
+    assert(sum_series(2, 2, 1) == 3)
+    assert(sum_series(3, 2, 1) == 4)
