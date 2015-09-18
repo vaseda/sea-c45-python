@@ -50,3 +50,9 @@ if __name__ == "__main__":
     assert(fibonacci(1) == 1)
     assert(fibonacci(2) == 2)
     assert(fibonacci(3) == 3)
+    # Test lucas
+    assert(lucas(0) == 2)
+    assert(lucas(1) == 1)
+    assert(lucas(2) == 3)
+    assert(lucas(3) == 4)
+
