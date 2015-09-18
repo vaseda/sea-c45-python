@@ -45,6 +45,7 @@ def sum_series(n, seed1=1, seed2=1):
 
 
 if __name__ == "__main__":
+
     # Test fibonacci
     assert(fibonacci(0) == 1)
     assert(fibonacci(1) == 1)
@@ -55,4 +56,8 @@ if __name__ == "__main__":
     assert(lucas(1) == 1)
     assert(lucas(2) == 3)
     assert(lucas(3) == 4)
-
+    # Test sum_series for fibonacci
+    assert(sum_series(0, 1, 1) == 1)
+    assert(sum_series(1, seed2=1, seed1=1) == 1)
+    assert(sum_series(2) == 2)
+    assert(sum_series(3) == 3)
