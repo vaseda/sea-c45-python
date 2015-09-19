@@ -1,0 +1,128 @@
+Name: Lena Yanenko
+CodeFellows Python F2
+SEA-C45
+Homework 8
+
+For each problem that requires a written answer, write (or copy-and-paste)
+your answers in this file.  When you are done, you should have replaced all
+the ellipses (the three dots) with your answers.
+
+At the end, you will turn in this file along with your modified
+dna_analysis.py program.
+
+Problem 1:
+(No answers in this file.)
+
+Problem 2:
+
+GC-content: 0.4302926296296296
+
+Problem 3:
+
+Error:
+Traceback (most recent call last):
+  File "dna_analysis.py", line 38, in <module>
+    linenum = linenum + 1
+NameError: name 'linenum' is not defined
+
+# linenum. The program tries to increment linenum, but the variable is uninitialized.
+
+In case of #"seq" it would be problem with uninitialized variable too.
+
+For #gc_count = 0  - uninitialized variable as well.
+
+Problem 4:
+Lizard: hw08 Lena$ python dna_analysis.py data/sample_1.fastq
+GC-content: 0.4302926296296296
+AT-content: 0.5689938518518518
+Manually calculated total amount is 0.999286481 which is not 100%. Error is 0.000713519.
+
+Problem 5:
+A-number: 7701287
+T-number: 7661547
+G-number: 5738773
+C-number: 5879128
+total-number: 27000000
+
+Problem 6:
+Results for test-small.fastq file:
+Lizard:hw08 Lena$ python dna_analysis.py data/test-small.fastq
+GC-content: 0.3
+AT-content: 0.7
+A-number: 5
+T-number: 2
+G-number: 1
+C-number: 2
+total-number: 10
+For the small test file GC_content + AT-content = 1
+total-number equals the sum of numbers of all individual nucleotids. Small data set looks consistent and 
+correct.
+
+Results for sample_1.fastq file:
+GC-content: 0.4302926296296296
+AT-content: 0.5689938518518518
+A-number: 7701287
+T-number: 7661547
+G-number: 5738773
+C-number: 5879128
+total-number: 27000000
+The sum of A, T, G and C numbers equal to 26980735 not to 27000000. Error is 19265. 
+The sum of GC- and AT-content should be 1. Manually calculated total amount is 0.999286481 
+which is not 100%. Error is 0.000713519.
+
+I found, that some strings in sample_1.fastq file contain unexpected character "N", which doesn't correspond
+to any nucleotid. Apparently the data has some defects.
+
+Lizard:hw08 Lena$ python dna_analysis.py data/test-small.fastq
+GC-content: 0.3
+AT-content: 0.7
+A-number: 5
+T-number: 2
+G-number: 1
+C-number: 2
+total-number: 10
+
+Unexpected char:  N
+GC-content: 0.43059987061138255
+AT-content: 0.5694001293886175
+A-number: 7701287
+T-number: 7661547
+G-number: 5738773
+C-number: 5879128
+total-number: 26980735
+
+For calculating GC and AT contents the correct denominator should be the sum of A, T, C and G numbers, 
+rather than total-number.
+
+Problem 7:
+Lizard:hw08 Lena$ python dna_analysis.py data/sample_1.fastq
+GC-content: 0.43059987061138255
+AT-content: 0.5694001293886175
+A-number: 7701287
+T-number: 7661547
+G-number: 5738773
+C-number: 5879128
+total-number: 26980735
+AT/GC ratio: 0.43059987061138255
+
+Problem 8:
+Lizard:hw08 Lena$ python dna_analysis.py data/sample_1.fastq
+GC-content: 0.43059987061138255
+AT-content: 0.5694001293886175
+A-number: 7701287
+T-number: 7661547
+G-number: 5738773
+C-number: 5879128
+total-number: 26980735
+AT/GC ratio: 0.43059987061138255
+GC Classification: moderate GC content
+
+Collaboration:
+
+I have done it by myself. Unfortunately, I was not able to join you on Thursday this week. 
+
+Reflection:
+
+Most likely Big Data contain certain proportion of errors. And program should be able to handle them 
+gracefully.
+
