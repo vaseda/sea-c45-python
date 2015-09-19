@@ -41,11 +41,14 @@ def lucas(n):
 
 def sum_series(n, seed1=1, seed2=1):
         """ Returns the nth number of the sum_series.
-        
+
             Keyword arguments:
             n -- number of the element in the series to calculate.
             seed1 -- first element of the series (default 1).
             seed2 -- second element of the series (default 2).
+
+            Example: sum_series(1) == 1
+            Example: sum_series(2, 2, 1) == 3
         """
         a = seed1
         b = seed2
