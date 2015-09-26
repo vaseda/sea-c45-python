@@ -1,0 +1,51 @@
+def Main_Menu:
+    """Enter the loop:
+            Presents Main Menu.
+            Validates User input.
+            Calls Actions Print_Report, Thank_you_letter or Quit. 
+            Break the loop upon Quit command.
+    """
+
+donor_list = [ ]
+    """Use dictionary key = donor_name, value = tuple (number of donations, total donation).
+    """
+
+def Print_Report:
+    """Sorts donor_list by donation amount and prints formated report.
+        String formatting to be applied to the report layout. The following columns should be 
+        represented: Donor's name as 'Name' in table header, total amount of donations per donor as 'Total amount', 
+        number of donations as 'Number of donations', average donation as 'Average'. Header of 
+        the table should be in Bold fonts. Alignment to the left. Use strings substitution to create a report.
+        Sort the list by total donation. 
+    """
+
+def Thank_you_letter:
+    """ Inputs donor name and donation amount.
+        If user inputs Quit command, return.
+        If name not in donor_list add to the list.
+        Call print_thank_you_letter.
+    """
+
+def print_thank_you_letter:
+    """Fine print using THANKYOU letter template, substitute placeholders with actual name and amount of 
+        donation.
+    """
+
+
+def get_user_input(prompt, validator=None):
+
+    """request input from the user with `prompt` and return the result.
+    Optionally, validate the input with a function `validator`(with method 'isalpha()' - 
+    checks whether the string consists of alphabetic characters only; 
+    and method 'isnumeric()' checks whether the string consists of only numeric characters.), 
+    which must take one argument, the input from the user and must return the input if
+    valid, and 'None' if not valid:
+    """
+    reply = None
+    while reply is None:
+        reply = ask_for_input(prompt)
+        if there_is_a_validator:
+            validate_the_reply
+    return reply
+    Donation return value should be in float format not an integer. 
+    """
