@@ -1,4 +1,5 @@
 
+
 def Main_Menu():
     print("Welcome to Mailroom Madness")
     while True:
@@ -13,8 +14,10 @@ def Main_Menu():
             Thank_you_letter()
         if command == "R":
             Print_Report()
+        else:
+            print("Unknown command!")
 
-donators_list = {"Bill Gates": (100, 2), "John Pet": (20, 3)}
+donators_list = {"Bill Gates": (100, 2), "John Peter": (20, 3)}
 
 
 def Thank_you_letter():
@@ -32,32 +35,54 @@ def Thank_you_letter():
             update_donors_list(donation)
             letter_thankyou(donation)
 
+
 def update_donors_list(donation):
     name = donation[0]
     if name in donators_list:
         v = donators_list[name]
-        donators_list[name] = (v[0]+int(donation[1]), v[1]+1)
+        donators_list[name] = (v[0]+float(donation[1]), v[1]+1)
     else:
-        donators_list[name] = (int(donation[1]), 1)
+        donators_list[name] = (float(donation[1]), 1)
 
-def print_list():       
+
+def print_list():
     for donor in list(donators_list):
         print(donor)
 
 
 def Print_Report():
     print("Report")
-    print("Name\t  Total \t # \t average")
+    print("{:<20.20s} |  {:<10.10s} | {:<5.5s} |  {:<10.10s} ".format("Name", "Total", "#", "Average"))
+    print("_______________________________________________________")
     for name in list(donators_list):
         v = donators_list[name]
-        print(name,"\t", "$", v[0],"\t ", "$", v[1], "\t", v[0]/v[1])
+        amount = v[0]
+        number_of_donations = v[1]
+        print("{:<20.20s} | ${:<10.2f} | {:<5d} | ${:<10.2f} ".format(name, amount,
+            number_of_donations, amount / number_of_donations))
     input("Press Enter to Continue")
+
+
+def validate_amount(str):
+    try:
+        float(str)
+        return True
+    except ValueError:
+        return False
+
+
+def validate_name(str):
+        for s in str:
+            if s.upper() not in "ABCDEFGHIJKLMNOPQRSTUWXYZ ":
+                return False
+        return True
 
 
 def input_donation(name):
     condition1 = True
     while condition1:
-        condition1 = not(name.isalpha() or " " in name)
+        name = name.strip()
+        condition1 = not validate_name(name)
         if condition1:
             print(name, "Not a name. \n Try again...")
             name = input(">")
@@ -66,7 +91,7 @@ def input_donation(name):
     while condition2:
         donation = input(">")
         # Checking if a string contains numerics only:
-        condition2 = not(donation.isnumeric())
+        condition2 = not validate_amount(donation)
         if condition2:
             print(donation, "Not a number. \nTry again...")
     return (name, donation)
@@ -78,4 +103,6 @@ def letter_thankyou(donation):
     print(letter)
 
 
-Main_Menu()
+if __name__ == "__main__":
+    Main_Menu()
+
