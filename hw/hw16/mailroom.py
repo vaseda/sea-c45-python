@@ -1,18 +1,18 @@
 
 def Main_Menu():
     """Enter the loop:
-            Presents Main Menu.
+            Presents Main Menu interface as a dictionary.
             Validates User input.
             Calls Actions: Thank_you_letter, Print_Report or Quit.
             Break the loop upon Quit command.
+            If User input not in the Main_Menu -- print "Unknown command!"
     """
     cmd = {"T": (Thank_you_letter, "Send a (T)hank You"),
                 "R": (Print_Report, "Creates (R)eport"),
                 "F": (Print_to_File, "Print Thank You Letters to (F)iles"),
                 "quit": (lambda: False, "Quit the program"),
                 }
-
-    print("Welcome to Mail room Madness")
+    print("\nWelcome to Mail room Madness\n")
     while True:
         print("Choose from the following:")
         prompts = sorted(["{} - {}".format(k, v[1]) for k, v in cmd.items()])
@@ -25,10 +25,15 @@ def Main_Menu():
         else:
             print("Unknown command!")
 
-# List of donors already consists of two people:
-donators_list = {"Bill Gates": (100, 2), "John Peter": (20, 3)}
 
-def print_donar_to_file(d):
+# List of donors already consists of some people:
+donators_list = {"Bill Gates": (100, 2), "John Peter": (20, 3),
+                        "Warren Baffett": (1000, 5), "Elon Musk": (77, 1)}
+
+
+def print_donor_to_file(d):
+    """ Write a full set of letters to everyone to individual files on disk.
+    """
     filename = "{}.txt".format(d[0].replace(" ", "_"))
     f = open(filename, 'w')
     letter = letter_thankyou(d)
@@ -37,9 +42,12 @@ def print_donar_to_file(d):
 
 
 def Print_to_File():
+    """Print Tank You Letter to correspondent with donor File.
+    """
     for d in donators_list.items():
-        print_donar_to_file((d[0], d[1][0]))
+        print_donor_to_file((d[0], d[1][0]))
     return True
+
 
 def Thank_you_letter():
     """Inputs donor name.
@@ -51,8 +59,8 @@ def Thank_you_letter():
     """
     while True:
         print("Please enter a name, or choose from the following:")
-        print("list - Print a list of previous donors")
-        print("quit - Return to main menu")
+        print("list - Print a list of previous donors.")
+        print("quit - Return to main menu.")
         v = input(">")
         if v == 'quit':
             break
@@ -82,7 +90,8 @@ def update_donors_list(donation):
 
 
 def print_list():
-    """ Prints list of donors. """
+    """Prints list of donors.
+    """
     for donor in list(donators_list):
         print(donor)
 
@@ -139,7 +148,7 @@ def input_donation(name):
 
     condition2 = True
     while condition2:
-        print("Please enter a donation amount")
+        print("Please enter a donation amount:")
         donation = input(">")
         # Checking if a string contains numerics only:
         condition2 = not validate_amount(donation)
@@ -151,9 +160,10 @@ def input_donation(name):
     return (name, float(donation))
 
 
-# Prints Thank You Letter for particular donor and his/her donation.
 def letter_thankyou(donation):
-    temp_letter = ("Dear {},\nWe are writing to express our deepest "
+    """ Prints Thank You Letter for particular donor and his/her donation.
+    """
+    temp_letter = ("\n\nDear {},\n\nWe are writing to express our deepest "
                             "thanks for your recent donation of ${:.2f} to "
                             "'Millenium Foundation'. Generous gifts from "
                             "donors like you provide the financial and moral "
@@ -162,8 +172,8 @@ def letter_thankyou(donation):
                             " you have demonstrated your deep commitment to "
                             "our work of providing shelter for the homeless "
                             "people.\nWe look forward to a continuing "
-                            "partnership with you.\nSincerely,\n'Millenium "
-                            "Foundation'\n")
+                            "partnership with you.\n\nSincerely,\n\n'Millenium"
+                            " Foundation'\n\n")
     letter = temp_letter.format(donation[0], donation[1])
     return letter
 
