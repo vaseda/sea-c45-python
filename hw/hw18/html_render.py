@@ -21,41 +21,44 @@ class Element(object):
 
     def render(self, file_new, ind=""):
         """Render the content to the given file like object"""
+        file_new.write("\n")
         file_new.write(ind)
         file_new.write("<%s" % self.tag)
         for key, value in self.attributes.items():
-            file_new.write(" %s='%s'" % (key, value))
-        file_new.write(">\n")
+            file_new.write(' %s="%s"' % (key, value))
+        file_new.write(">")
         for s in self.content:
             if isinstance(s, Element):
                 s.render(file_new, ind+self.indent)
             else:
-                file_new.write(ind+self.indent+str(s)+"\n")
-        file_new.write(ind+"</"+self.tag+">\n")
+                file_new.write("\n"+ind+self.indent+str(s))
+        file_new.write("\n"+ind+"</"+self.tag+">")
 
 
 class OneLineTag(Element):
     """Base class for simple one line tags"""
     def render(self, file_new, ind=""):
         """Render on a single line"""
+        file_new.write("\n")
         file_new.write(ind)
         file_new.write("<%s" % self.tag)
         for key, value in self.attributes.items():
             file_new.write(' %s="%s"' % (key, value))
         file_new.write(">")
         file_new.write(str(self.content[0]))
-        file_new.write('</%s>\n' % self.tag)
+        file_new.write('</%s>' % self.tag)
 
 
 class SelfClosingTag(Element):
     """Base class for self closing tags"""
     def render(self, file_new, ind=""):
         """Render the content to the given file like object"""
+        file_new.write("\n")
         file_new.write(ind)
         file_new.write("<%s" % self.tag)
         for key, value in self.attributes.items():
-            file_new.write(" %s='%s'" % (key, value))
-        file_new.write(">\n")
+            file_new.write(' %s="%s"' % (key, value))
+        file_new.write(" />")
 
 
 class Html(Element):
@@ -64,7 +67,7 @@ class Html(Element):
 
     def render(self, file_new, ind=""):
         """Render the content to the given file like object"""
-        file_new.write("<!DOCTYPE html>\n")
+        file_new.write("<!DOCTYPE html>")
         Element.render(self, file_new, ind)
 
 
@@ -80,7 +83,7 @@ class P(Element):
 
 class Head(Element):
     """Implements head tag"""
-    tag = "h"
+    tag = "head"
 
 
 class Title(OneLineTag):
