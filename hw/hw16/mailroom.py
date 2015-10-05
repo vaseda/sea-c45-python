@@ -1,24 +1,24 @@
 
-def Main_Menu():
+def main_menu():
     """Enter the loop:
-            Presents Main Menu interface as a dictionary.
-            Validates User input.
-            Calls Actions: Thank_you_letter, Print_Report or Quit.
-            Break the loop upon Quit command.
-            If User input not in the Main_Menu -- print "Unknown command!"
+            Presents *main menu* interface as a dictionary.
+            Validates user *input*.
+            Calls actions: *thank_you_letter*, *print_report* or *quit*.
+            Break the loop upon quit command.
+            If user input not in the *main_menu* -- print: "Unknown command!"
     """
-    cmd = {"T": (Thank_you_letter, "Send a (T)hank You"),
-                "R": (Print_Report, "Creates (R)eport"),
-                "F": (Print_to_File, "Print Thank You Letters to (F)iles"),
-                "quit": (lambda: False, "Quit the program"),
-                }
-    print("\nWelcome to Mail room Madness\n")
+    cmd = {"t": (thank_you_letter, "Send a (T)hank You"),
+           "r": (print_report, "Create a (R)eport"),
+           "f": (print_to_file, "Print Thank You Letters to (F)iles"),
+           "quit": (lambda: False, "Quit the program"), }
+    print("\nWelcome to 'Mailroom Madness'\n")
     while True:
         print("Choose from the following:")
         prompts = sorted(["{} - {}".format(k, v[1]) for k, v in cmd.items()])
         for p in prompts:
             print(p)
         command = input(">")
+        command = command.lower()
         if command in cmd:
             if not cmd[command][0]():
                 break
@@ -27,8 +27,8 @@ def Main_Menu():
 
 
 # List of donors already consists of some people:
-donators_list = {"Bill Gates": (100, 2), "John Peter": (20, 3),
-                        "Warren Baffett": (1000, 5), "Elon Musk": (77, 1)}
+donators_list = {
+    "Bill Gates": (100, 2), "Peter Thiel": (1000, 5), "J J": (77, 1)}
 
 
 def print_donor_to_file(d):
@@ -41,26 +41,26 @@ def print_donor_to_file(d):
     f.close()
 
 
-def Print_to_File():
-    """Print Tank You Letter to correspondent with donor File.
+def print_to_file():
+    """Print Tank You Letter to correspondent with donor file.
     """
     for d in donators_list.items():
         print_donor_to_file((d[0], d[1][0]))
     return True
 
 
-def Thank_you_letter():
-    """Inputs donor name.
-        If user inputs Quit command, return to the Main Menu.
-        If user inputs list command, prints the list of donors.
-        Call input_donation().
-        Call update_donors_list().
-        Call letter_thankyou().
+def thank_you_letter():
+    """Inputs <donor name>.
+        If user inputs *quit* command, return to the *main_menu*.
+        If user inputs *list* command, prints the list of donors.
+        Call *input_donation*.
+        Call *update_donors_list*.
+        Call *letter_thankyou*.
     """
     while True:
         print("Please enter a name, or choose from the following:")
-        print("list - Print a list of previous donors.")
-        print("quit - Return to main menu.")
+        print("list - print a list of previous donors.")
+        print("quit - return to *main_menu*.")
         v = input(">")
         if v == 'quit':
             break
@@ -76,9 +76,9 @@ def Thank_you_letter():
 
 def update_donors_list(donation):
     """ Validates:
-        If name not in donors list -- updates list with
+        If <name> not in donors list -- updates list with
         name and correspondent donation amount.
-        If name in the list -- adds an other amount of donation
+        If <name> in the list -- adds an other amount of donation
         to already existing donor.
     """
     name = donation[0]
@@ -96,12 +96,13 @@ def print_list():
         print(donor)
 
 
-def Print_Report():
-    """String formatting applied to the (R)eport layout.
-        Sorts donators_list by total donation amount and prints formated report
+def print_report():
+    """String formatting applied to the report layout.
+        Sort *donators_list* by total donation amount and prints
+        formated report.
         Compute historical amount and average amount of donation per donor.
-        Prints Report.
-        Quits to the Main menu by input: 'Press ENTER to continue'.
+        Prints report.
+        Quits to the *main_menu* by input: 'Press ENTER to continue'.
     """
     print("{:<20.20s} |  {:<10.10s} | {:<5.5s} |  {:<10.10s}".format("Name", "Total", "#", "Average"))
     print("_______________________________________________________")
@@ -109,27 +110,27 @@ def Print_Report():
         v = donators_list[name]
         amount = v[0]
         number_of_donations = v[1]
-        print("{:<20.20s} | ${:<10.2f} | {:<5d} | ${:<10.2f}".format(name, amount, number_of_donations, amount / number_of_donations))
+        fmt = "{:<20.20s} | ${:<10.2f} | {:<5d} | ${:<10.2f}"
+        print(fmt.format(name, amount, number_of_donations,
+              amount / number_of_donations))
     input("Press Enter to Continue")
     return True
 
 
-def validate_amount(str):
+def validate_amount(amt):
     """ Validates input donors amount.
     """
     try:
-        v = float(str)
-        if v <= 0:
-            return False
-        return True
+        v = float(amt)
+        return v > 0
     except ValueError:
         return False
 
 
-def validate_name(str):
-    """ Validates input name -- if all symbols in the name are alphabetic.
+def validate_name(name):
+    """ Validates input <name> -- if all symbols in the <name> are alphabetic.
     """
-    for s in str:
+    for s in name:
         if s.upper() not in "ABCDEFGHIJKLMNOPQRSTUWXYZ ":
             return False
     return True
@@ -164,18 +165,18 @@ def letter_thankyou(donation):
     """ Prints Thank You Letter for particular donor and his/her donation.
     """
     temp_letter = ("\n\nDear {},\n\nWe are writing to express our deepest "
-                            "thanks for your recent donation of ${:.2f} to "
-                            "'Millenium Foundation'. Generous gifts from "
-                            "donors like you provide the financial and moral "
-                            "support needed to continue our mission. With your"
-                            " faithful financial contributions over the years,"
-                            " you have demonstrated your deep commitment to "
-                            "our work of providing shelter for the homeless "
-                            "people.\nWe look forward to a continuing "
-                            "partnership with you.\n\nSincerely,\n\n'Millenium"
-                            " Foundation'\n\n")
+                   "thanks for your recent donation of ${:.2f} to "
+                   "'Millenium Foundation'. Generous gifts from "
+                   "donors like you provide the financial and moral "
+                   "support needed to continue our mission. With your"
+                   " faithful financial contributions over the years,"
+                   " you have demonstrated your deep commitment to "
+                   "our work of providing shelter for the homeless "
+                   "people.\nWe look forward to a continuing "
+                   "partnership with you.\n\nSincerely,\n\n'Millenium"
+                   " Foundation'\n\n")
     letter = temp_letter.format(donation[0], donation[1])
     return letter
 
 if __name__ == "__main__":
-    Main_Menu()
+    main_menu()
